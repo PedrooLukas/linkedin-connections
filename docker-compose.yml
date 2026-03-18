@@ -1,0 +1,27 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: linkedin-connections-backend
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:sqlite:/app/data/linkedin.db
+      SERVER_PORT: 9091
+    ports:
+      - "9091:9091"
+    volumes:
+      - backend_data:/app/data
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: linkedin-connections-frontend
+    depends_on:
+      - backend
+    environment:
+      NEXT_PUBLIC_API_BASE_URL: http://localhost:9091/api
+      PORT: 3006
+    ports:
+      - "3006:3006"
+
+volumes:
+  backend_data:

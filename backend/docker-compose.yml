@@ -1,0 +1,12 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: linkedin-connections-backend
+    ports:
+      - "9091:9091"
+    volumes:
+      - ./data:/app/data
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:sqlite:/app/data/linkedin.db
