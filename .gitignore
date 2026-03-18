@@ -26,3 +26,6 @@ backend/.mvn/wrapper/maven-wrapper.jar
 
 # Local runtime data
 backend/data/
+
+# Local notes
+LINKEDIN_POST_SKILLS.md
