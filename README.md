@@ -43,25 +43,6 @@ Se voce alterou o codigo e quer refletir isso nos containers:
 docker compose up --build
 ```
 
-Se mudou so o frontend:
-
-```bash
-docker compose build frontend
-docker compose up -d frontend
-```
-
-Se mudou so o backend:
-
-```bash
-docker compose build backend
-docker compose up -d backend
-```
-
-### Observacoes
-
-- Os dados processados pelo backend ficam persistidos no volume Docker usado pelo SQLite.
-- O arquivo ZIP enviado pelo frontend nao e armazenado permanentemente; apenas os dados importados sao salvos no banco.
-- Se o build do frontend falhar no Docker, rode sem cache para diagnostico:
 
 ```bash
 docker compose build frontend --no-cache
